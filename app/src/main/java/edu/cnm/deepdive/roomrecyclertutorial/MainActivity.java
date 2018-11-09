@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View.OnClickListener;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
   RecyclerView recyclerView;
   RecyclerView.Adapter adapter;
   FloatingActionButton fab;
-
+  ArrayList<String> users;
 
 
   @Override
@@ -34,10 +35,16 @@ public class MainActivity extends AppCompatActivity {
 
     recyclerView = findViewById(R.id.recycler_view);
 
+    users = new ArrayList<>();
+
+    for (int i = 0; i< 100; i++){
+      users.add("Dan #" + i);
+    }
+
+
     recyclerView.setLayoutManager(new LinearLayoutManager(this));
-  //  adapter = new UserAdapter();
-    adapter = new AsdfAdapter();
-    recyclerView.setAdapter(adapter);
+     adapter = new UserAdapter;
+     recyclerView.setAdapter(adapter);
 
     fab = findViewById(R.id.fab);
     fab.setOnClickListener(new OnClickListener() {
